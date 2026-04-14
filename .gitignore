@@ -1,0 +1,79 @@
+# Root-level .gitignore for Insurance Claims Monorepo
+
+# ==========================================
+# IDE & Editor Files
+# ==========================================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ==========================================
+# Operating System Files
+# ==========================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+
+# ==========================================
+# Environment & Configuration
+# ==========================================
+.env
+.env.local
+.env.*.local
+
+# ==========================================
+# Logs
+# ==========================================
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ==========================================
+# Temporary Files
+# ==========================================
+*.tmp
+*.temp
+.cache/
+tmp/
+temp/
+
+# ==========================================
+# Build & Distribution
+# ==========================================
+dist/
+build/
+
+# ==========================================
+# Documentation
+# ==========================================
+*.pdf
+*.docx
+!knowledge/**/*.pdf
+!knowledge/**/*.docx
+
+# ==========================================
+# Misc
+# ==========================================
+.secrets/
+.keys/
+*.bak
+*.orig

@@ -66,12 +66,6 @@ class Settings(BaseSettings):
     STRIPE_SECRET_KEY: str = ""
     STRIPE_PUBLISHABLE_KEY: str = ""
     
-    # Document Signing (DocuSign - Optional)
-    DOCUSIGN_INTEGRATION_KEY: str = ""
-    DOCUSIGN_USER_ID: str = ""
-    DOCUSIGN_ACCOUNT_ID: str = ""
-    DOCUSIGN_BASE_PATH: str = ""
-    
     # Monitoring
     SENTRY_DSN: str = ""
     LOG_LEVEL: str = "INFO"
@@ -94,8 +88,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",
-        case_sensitive=True,
-        extra="ignore"  # Ignore extra fields like PGADMIN_* (used only by Docker)
+        case_sensitive=True
     )
 
 

@@ -37,15 +37,10 @@ class Settings(BaseSettings):
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7
     
     # CORS
-    CORS_ORIGINS: str = "http://localhost:3000,http://localhost:8000"
+    CORS_ORIGINS: List[str] = ["http://localhost:3000"]
     CORS_ALLOW_CREDENTIALS: bool = True
-    CORS_ALLOW_METHODS: str = "*"
-    CORS_ALLOW_HEADERS: str = "*"
-    
-    @property
-    def cors_origins_list(self) -> List[str]:
-        """Convert CORS_ORIGINS string to list"""
-        return [origin.strip() for origin in self.CORS_ORIGINS.split(",")]
+    CORS_ALLOW_METHODS: List[str] = ["*"]
+    CORS_ALLOW_HEADERS: List[str] = ["*"]
     
     # AWS (Optional)
     AWS_ACCESS_KEY_ID: str = ""
@@ -65,12 +60,6 @@ class Settings(BaseSettings):
     # Payment (Stripe)
     STRIPE_SECRET_KEY: str = ""
     STRIPE_PUBLISHABLE_KEY: str = ""
-    
-    # Document Signing (DocuSign - Optional)
-    DOCUSIGN_INTEGRATION_KEY: str = ""
-    DOCUSIGN_USER_ID: str = ""
-    DOCUSIGN_ACCOUNT_ID: str = ""
-    DOCUSIGN_BASE_PATH: str = ""
     
     # Monitoring
     SENTRY_DSN: str = ""
@@ -94,8 +83,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",
-        case_sensitive=True,
-        extra="ignore"  # Ignore extra fields like PGADMIN_* (used only by Docker)
+        case_sensitive=True
     )
 
 
