@@ -1,6 +1,6 @@
 """Document model for file management"""
 
-from sqlalchemy import Column, String, Integer, Date, ForeignKey, Index, Enum as SQLEnum, Text, BigInteger
+from sqlalchemy import Column, String, Integer, Date, DateTime, ForeignKey, Index, Enum as SQLEnum, Text, BigInteger
 from sqlalchemy.orm import relationship
 
 from app.models.base import BaseModel

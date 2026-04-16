@@ -1,6 +1,6 @@
 """Risk Assessment model for evaluating policy and claim risks"""
 
-from sqlalchemy import Column, String, Integer, Date, ForeignKey, Numeric, Index, Text
+from sqlalchemy import Boolean, Column, String, Integer, Date, ForeignKey, Numeric, Index, Text
 from sqlalchemy.orm import relationship
 
 from app.models.base import BaseModel

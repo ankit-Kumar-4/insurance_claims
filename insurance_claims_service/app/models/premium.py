@@ -1,6 +1,6 @@
 """Premium model for insurance payment tracking"""
 
-from sqlalchemy import Column, String, Integer, Date, ForeignKey, Numeric, Index, Enum as SQLEnum
+from sqlalchemy import Column, String, Integer, Date, ForeignKey, Numeric, Boolean, Index, Enum as SQLEnum
 from sqlalchemy.orm import relationship
 
 from app.models.base import BaseModel

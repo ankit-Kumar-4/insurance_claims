@@ -1,6 +1,6 @@
 """Incident model for events that trigger claims"""
 
-from sqlalchemy import Column, String, Integer, Date, Time, ForeignKey, Numeric, Boolean, Index, Enum as SQLEnum, Text, Float
+from sqlalchemy import Column, String, Integer, Date, Time, DateTime, ForeignKey, Numeric, Boolean, Index, Enum as SQLEnum, Text, Float
 from sqlalchemy.orm import relationship
 
 from app.models.base import BaseModel
