@@ -17,7 +17,7 @@ class ClaimBase(BaseSchema):
     claim_date: date
     incident_date: date
     status: ClaimStatus
-    claim_amount: Decimal = Field(..., gt=0, decimal_places=2)
+    claim_amount: Decimal = Field(..., gt=0)
     description: str = Field(..., min_length=10, max_length=2000)
 
 
@@ -29,8 +29,8 @@ class ClaimCreate(ClaimBase):
 class ClaimUpdate(BaseSchema):
     """Schema for updating a claim"""
     status: Optional[ClaimStatus] = None
-    claim_amount: Optional[Decimal] = Field(None, gt=0, decimal_places=2)
-    approved_amount: Optional[Decimal] = Field(None, ge=0, decimal_places=2)
+    claim_amount: Optional[Decimal] = Field(None, gt=0)
+    approved_amount: Optional[Decimal] = Field(None, ge=0)
     description: Optional[str] = Field(None, min_length=10, max_length=2000)
     rejection_reason: Optional[str] = None
 

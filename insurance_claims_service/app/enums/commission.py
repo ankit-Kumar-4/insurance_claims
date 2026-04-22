@@ -21,3 +21,7 @@ class CommissionPaymentStatus(str, enum.Enum):
     WITHHELD = "withheld"
     CANCELLED = "cancelled"
     DISPUTED = "disputed"
+
+
+# Alias for backwards compatibility
+CommissionStatus = CommissionPaymentStatus

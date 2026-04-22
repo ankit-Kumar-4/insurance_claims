@@ -47,3 +47,12 @@ class PropertyStatus(str, enum.Enum):
     UNDER_CONSTRUCTION = "under_construction"
     CONDEMNED = "condemned"
     INACTIVE = "inactive"
+
+
+class PropertyCondition(str, enum.Enum):
+    """Property condition"""
+    EXCELLENT = "excellent"
+    GOOD = "good"
+    FAIR = "fair"
+    POOR = "poor"
+    DILAPIDATED = "dilapidated"

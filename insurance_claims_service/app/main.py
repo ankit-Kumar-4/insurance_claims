@@ -6,6 +6,7 @@ from fastapi.responses import JSONResponse
 from datetime import datetime
 
 from app.config import settings
+from app.routers import auth_router
 
 # Create FastAPI application
 app = FastAPI(
@@ -80,6 +81,9 @@ async def shutdown_event():
     print(f"Shutting down {settings.APP_NAME}")
 
 
-# TODO: Import and include API routers (Phase 6)
-# from app.api.v1.router import api_router
-# app.include_router(api_router, prefix="/api/v1")
+# Include authentication router
+app.include_router(auth_router, prefix="/api/v1")
+
+# TODO: Include entity routers (Phase 6)
+# from app.routers import policy_router, claim_router, etc.
+# app.include_router(policy_router, prefix="/api/v1")

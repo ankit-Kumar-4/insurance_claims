@@ -13,7 +13,7 @@ class RiskAssessmentBase(BaseSchema):
     risk_score: int = Field(..., ge=0, le=100)
     risk_factors: str = Field(..., min_length=10, max_length=2000)
     assessment_notes: Optional[str] = Field(None, max_length=2000)
-    recommended_premium: Decimal = Field(..., gt=0, decimal_places=2)
+    recommended_premium: Decimal = Field(..., gt=0)
 
 
 class RiskAssessmentCreate(RiskAssessmentBase):
@@ -26,7 +26,7 @@ class RiskAssessmentUpdate(BaseSchema):
     risk_score: Optional[int] = Field(None, ge=0, le=100)
     risk_factors: Optional[str] = Field(None, min_length=10, max_length=2000)
     assessment_notes: Optional[str] = Field(None, max_length=2000)
-    recommended_premium: Optional[Decimal] = Field(None, gt=0, decimal_places=2)
+    recommended_premium: Optional[Decimal] = Field(None, gt=0)
 
 
 class RiskAssessmentResponse(RiskAssessmentBase, ResponseSchema):

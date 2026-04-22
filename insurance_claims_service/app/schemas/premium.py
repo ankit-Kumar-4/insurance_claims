@@ -12,7 +12,7 @@ from app.enums.policy import PremiumFrequency
 class PremiumBase(BaseSchema):
     """Base premium schema"""
     policy_id: int = Field(..., gt=0)
-    amount: Decimal = Field(..., gt=0, decimal_places=2)
+    amount: Decimal = Field(..., gt=0)
     due_date: date
     frequency: PremiumFrequency
     is_paid: bool = Field(default=False)
@@ -25,7 +25,7 @@ class PremiumCreate(PremiumBase):
 
 class PremiumUpdate(BaseSchema):
     """Schema for updating a premium"""
-    amount: Optional[Decimal] = Field(None, gt=0, decimal_places=2)
+    amount: Optional[Decimal] = Field(None, gt=0)
     due_date: Optional[date] = None
     is_paid: Optional[bool] = None
     paid_date: Optional[date] = None

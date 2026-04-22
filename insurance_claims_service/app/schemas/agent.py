@@ -15,7 +15,7 @@ class AgentBase(BaseSchema):
     email: EmailStr
     phone_number: str = Field(..., min_length=10, max_length=20)
     license_number: str = Field(..., min_length=1, max_length=50)
-    commission_rate: Decimal = Field(..., ge=0, le=100, decimal_places=2, description="Commission percentage")
+    commission_rate: Decimal = Field(..., ge=0, le=100, description="Commission percentage")
     is_active: bool = Field(default=True)
 
 
@@ -31,7 +31,7 @@ class AgentUpdate(BaseSchema):
     email: Optional[EmailStr] = None
     phone_number: Optional[str] = Field(None, min_length=10, max_length=20)
     license_number: Optional[str] = Field(None, min_length=1, max_length=50)
-    commission_rate: Optional[Decimal] = Field(None, ge=0, le=100, decimal_places=2)
+    commission_rate: Optional[Decimal] = Field(None, ge=0, le=100)
     is_active: Optional[bool] = None
 
 

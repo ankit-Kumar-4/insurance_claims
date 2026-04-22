@@ -50,3 +50,16 @@ class VehicleStatus(str, enum.Enum):
     STOLEN = "stolen"
     SALVAGED = "salvaged"
     INACTIVE = "inactive"
+
+
+class VehicleCondition(str, enum.Enum):
+    """Vehicle condition"""
+    EXCELLENT = "excellent"
+    GOOD = "good"
+    FAIR = "fair"
+    POOR = "poor"
+    SALVAGE = "salvage"
+
+
+# Alias for backwards compatibility
+VehicleType = BodyType

@@ -17,3 +17,18 @@ class Status(str, enum.Enum):
     INACTIVE = "inactive"
     SUSPENDED = "suspended"
     DELETED = "deleted"
+
+
+class RelationshipType(str, enum.Enum):
+    """Relationship type for beneficiaries"""
+    SPOUSE = "spouse"
+    CHILD = "child"
+    PARENT = "parent"
+    SIBLING = "sibling"
+    OTHER_RELATIVE = "other_relative"
+    PARTNER = "partner"
+    FRIEND = "friend"
+    ORGANIZATION = "organization"
+    ESTATE = "estate"
+    TRUST = "trust"
+    OTHER = "other"

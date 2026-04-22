@@ -15,8 +15,8 @@ class EndorsementBase(BaseSchema):
     endorsement_type: EndorsementType
     endorsement_number: str = Field(..., min_length=1, max_length=50)
     effective_date: date
-    premium_change: Decimal = Field(default=0, decimal_places=2)
-    status: EndorsementStatus = EndorsementStatus.PENDING
+    premium_change: Decimal = Field(default=0)
+    status: EndorsementStatus = EndorsementStatus.REQUESTED
     description: str = Field(..., min_length=10, max_length=1000)
 
 
@@ -28,7 +28,7 @@ class EndorsementCreate(EndorsementBase):
 class EndorsementUpdate(BaseSchema):
     """Schema for updating an endorsement"""
     effective_date: Optional[date] = None
-    premium_change: Optional[Decimal] = Field(None, decimal_places=2)
+    premium_change: Optional[Decimal] = Field(None)
     status: Optional[EndorsementStatus] = None
     description: Optional[str] = Field(None, min_length=10, max_length=1000)
 

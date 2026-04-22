@@ -13,7 +13,7 @@ class PaymentBase(BaseSchema):
     """Base payment schema"""
     payment_type: PaymentType
     policy_id: int = Field(..., gt=0)
-    amount: Decimal = Field(..., gt=0, decimal_places=2)
+    amount: Decimal = Field(..., gt=0)
     payment_method: PaymentMethod
     payment_date: date
     status: PaymentStatus = PaymentStatus.PENDING

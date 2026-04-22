@@ -14,8 +14,8 @@ class CommissionBase(BaseSchema):
     agent_id: int = Field(..., gt=0)
     policy_id: int = Field(..., gt=0)
     commission_type: CommissionType
-    amount: Decimal = Field(..., gt=0, decimal_places=2)
-    rate: Decimal = Field(..., ge=0, le=100, decimal_places=2)
+    amount: Decimal = Field(..., gt=0)
+    rate: Decimal = Field(..., ge=0, le=100)
     status: CommissionStatus = CommissionStatus.PENDING
 
 
@@ -26,7 +26,7 @@ class CommissionCreate(CommissionBase):
 
 class CommissionUpdate(BaseSchema):
     """Schema for updating a commission"""
-    amount: Optional[Decimal] = Field(None, gt=0, decimal_places=2)
+    amount: Optional[Decimal] = Field(None, gt=0)
     status: Optional[CommissionStatus] = None
     paid_date: Optional[date] = None
 

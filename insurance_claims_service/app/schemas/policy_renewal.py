@@ -13,7 +13,7 @@ class PolicyRenewalBase(BaseSchema):
     """Base policy renewal schema"""
     policy_id: int = Field(..., gt=0)
     renewal_date: date
-    new_premium: Decimal = Field(..., gt=0, decimal_places=2)
+    new_premium: Decimal = Field(..., gt=0)
     status: RenewalStatus = RenewalStatus.PENDING
     notes: Optional[str] = Field(None, max_length=1000)
 
@@ -26,7 +26,7 @@ class PolicyRenewalCreate(PolicyRenewalBase):
 class PolicyRenewalUpdate(BaseSchema):
     """Schema for updating a policy renewal"""
     renewal_date: Optional[date] = None
-    new_premium: Optional[Decimal] = Field(None, gt=0, decimal_places=2)
+    new_premium: Optional[Decimal] = Field(None, gt=0)
     status: Optional[RenewalStatus] = None
     notes: Optional[str] = Field(None, max_length=1000)
 

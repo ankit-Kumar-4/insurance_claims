@@ -18,9 +18,9 @@ class PolicyBase(BaseSchema):
     start_date: date
     end_date: date
     status: PolicyStatus
-    premium_amount: Decimal = Field(..., gt=0, decimal_places=2)
-    coverage_amount: Decimal = Field(..., gt=0, decimal_places=2)
-    deductible: Decimal = Field(..., ge=0, decimal_places=2)
+    premium_amount: Decimal = Field(..., gt=0)
+    coverage_amount: Decimal = Field(..., gt=0)
+    deductible: Decimal = Field(..., ge=0)
     premium_frequency: Optional[PremiumFrequency] = PremiumFrequency.ANNUALLY
 
 
@@ -34,9 +34,9 @@ class PolicyUpdate(BaseSchema):
     policy_number: Optional[str] = Field(None, min_length=1, max_length=50)
     policy_type: Optional[PolicyType] = None
     status: Optional[PolicyStatus] = None
-    premium_amount: Optional[Decimal] = Field(None, gt=0, decimal_places=2)
-    coverage_amount: Optional[Decimal] = Field(None, gt=0, decimal_places=2)
-    deductible: Optional[Decimal] = Field(None, ge=0, decimal_places=2)
+    premium_amount: Optional[Decimal] = Field(None, gt=0)
+    coverage_amount: Optional[Decimal] = Field(None, gt=0)
+    deductible: Optional[Decimal] = Field(None, ge=0)
     end_date: Optional[date] = None
 
 

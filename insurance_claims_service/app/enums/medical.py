@@ -33,3 +33,7 @@ class AlcoholConsumption(str, enum.Enum):
     OCCASIONAL = "occasional"
     MODERATE = "moderate"
     HEAVY = "heavy"
+
+
+# Alias for backwards compatibility
+RecordType = MedicalRecordType
