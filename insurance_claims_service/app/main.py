@@ -6,7 +6,29 @@ from fastapi.responses import JSONResponse
 from datetime import datetime
 
 from app.config import settings
-from app.routers import auth_router
+from app.routers import (
+    auth_router,
+    policy_router,
+    claim_router,
+    customer_router,
+    agent_router,
+    insurer_router,
+    premium_router,
+    coverage_router,
+    beneficiary_router,
+    underwriter_router,
+    risk_assessment_router,
+    payment_router,
+    document_router,
+    incident_router,
+    vehicle_router,
+    property_router,
+    medical_record_router,
+    quote_router,
+    policy_renewal_router,
+    commission_router,
+    endorsement_router,
+)
 
 # Create FastAPI application
 app = FastAPI(
@@ -84,6 +106,24 @@ async def shutdown_event():
 # Include authentication router
 app.include_router(auth_router, prefix="/api/v1")
 
-# TODO: Include entity routers (Phase 6)
-# from app.routers import policy_router, claim_router, etc.
-# app.include_router(policy_router, prefix="/api/v1")
+# Include entity routers
+app.include_router(policy_router, prefix="/api/v1")
+app.include_router(claim_router, prefix="/api/v1")
+app.include_router(customer_router, prefix="/api/v1")
+app.include_router(agent_router, prefix="/api/v1")
+app.include_router(insurer_router, prefix="/api/v1")
+app.include_router(premium_router, prefix="/api/v1")
+app.include_router(coverage_router, prefix="/api/v1")
+app.include_router(beneficiary_router, prefix="/api/v1")
+app.include_router(underwriter_router, prefix="/api/v1")
+app.include_router(risk_assessment_router, prefix="/api/v1")
+app.include_router(payment_router, prefix="/api/v1")
+app.include_router(document_router, prefix="/api/v1")
+app.include_router(incident_router, prefix="/api/v1")
+app.include_router(vehicle_router, prefix="/api/v1")
+app.include_router(property_router, prefix="/api/v1")
+app.include_router(medical_record_router, prefix="/api/v1")
+app.include_router(quote_router, prefix="/api/v1")
+app.include_router(policy_renewal_router, prefix="/api/v1")
+app.include_router(commission_router, prefix="/api/v1")
+app.include_router(endorsement_router, prefix="/api/v1")

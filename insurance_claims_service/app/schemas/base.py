@@ -1,8 +1,10 @@
 """Base Pydantic schemas with common functionality"""
 
 from datetime import datetime
-from typing import Optional
+from typing import Optional, TypeVar, Generic, List
 from pydantic import BaseModel, ConfigDict, Field
+
+T = TypeVar('T')
 
 
 class BaseSchema(BaseModel):
@@ -43,27 +45,14 @@ class PaginationParams(BaseModel):
         return self.size
 
 
-class PaginatedResponse(BaseModel):
+class PaginatedResponse(BaseModel, Generic[T]):
     """Paginated response wrapper"""
-    items: list
+    items: List[T]
     total: int = Field(..., ge=0, description="Total number of items")
-    page: int = Field(..., ge=1, description="Current page number")
-    size: int = Field(..., ge=1, description="Page size")
-    pages: int = Field(..., ge=0, description="Total number of pages")
+    skip: int = Field(..., ge=0, description="Number of items skipped")
+    limit: int = Field(..., ge=1, description="Number of items per page")
     
     model_config = ConfigDict(from_attributes=True)
-    
-    @classmethod
-    def create(cls, items: list, total: int, page: int, size: int):
-        """Create paginated response"""
-        pages = (total + size - 1) // size if size > 0 else 0
-        return cls(
-            items=items,
-            total=total,
-            page=page,
-            size=size,
-            pages=pages
-        )
 
 
 class SuccessResponse(BaseModel):

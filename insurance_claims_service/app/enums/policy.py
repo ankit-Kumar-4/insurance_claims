@@ -38,3 +38,15 @@ class PremiumFrequency(str, enum.Enum):
     SEMI_ANNUALLY = "semi_annually"
     ANNUALLY = "annually"
     ONE_TIME = "one_time"
+
+
+class CoverageType(str, enum.Enum):
+    """Types of insurance coverage"""
+    LIABILITY = "liability"
+    COLLISION = "collision"
+    COMPREHENSIVE = "comprehensive"
+    PERSONAL_INJURY = "personal_injury"
+    PROPERTY_DAMAGE = "property_damage"
+    MEDICAL_PAYMENTS = "medical_payments"
+    UNINSURED_MOTORIST = "uninsured_motorist"
+    UNDERINSURED_MOTORIST = "underinsured_motorist"
